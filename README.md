@@ -1,33 +1,120 @@
-# Practice
-This is the repository we will use to do practice exercises for the whole team.
+# Starter Project - Backend - G33 - A2SV Blog and Shout Outs
 
-# Current Exercise - GitHub Workflow on `Names.md`
-Open the `starter-project-[your team]-[your group]` folder where you will find a `README.md` file with instruction to follow. The goal of this exercise is to practice the consistent worlflow we would use during development in the respective teams and technologies
+- Overview and description of what the project is going to be
+- Workflow as a backend team member and
+- Source of any additional information you might need
 
-# Past Practices
-* Look into the Workflow Steps and the Instructions in `Names.md`. Follow the Steps to add your name and prefered project in the `Names.md` file
+## Overview
 
-# Github Workflow Steps
-1. ***Clone*** the repository if you don't have it already (this tends to get more difficult as the project grows and the file size grows)
-2. If you already had the project locally, perform a `git pull` on the main branch
-3. Create and checkout to a new branch from the main. You can use `git checkout -b branch-name`, which is a shorter alternative for `git branch branch-name` followed by `git checkout branch-name`
-4. The branch naming convention should follow the pattern `name.feature-name`. (eg. `nati.login`, `emre.users-form`)
-5. If you already have a branch and wish to continue working on it, use ***Rebase*** to bring in changes from the main branch. Use the command `git rebase main` if you are on your branch or `git rebase main branch-name` from anywhere to rebase your branch ***onto*** the main
-6. Pulling from main into your branch (same as merging the main into your branch) could have similar results but using rebase from the main makes a more linear version control history as it basically pretends like whatever you committed on your branch happened ***After*** the changes in the main wheather they actually happend after or before
-7. Once your branch is rebased and upto date, make the changes you wish to make and stage and commit your changes. Make sure to remember if you need to add any files into the `.gitignore` before committing
-8. The commit messages should be Present Tense Imparative Sentences (eg. "Create README.md", "Update the Login Page"). Imagine the phrase ***"This commit is made to..."*** before your commit message (eg. "This commit is made to `Create README.md`"). In addition to an imparetive statement, include a tag for what the commit is about in square braces. So a full commit message could look something like - `[mobile] Update Login Page`. And make sure a commit is as small as can be explained in one statement.
-9. Once the commits are made, push the local changes to github using `git push`. If you have made a rebase however, you may need to push forcefully cause you could get some weird conflicts otherwise. So use `git push --force` instead.
-10. Once the changes are pushed to remote, go to github and create a pull request. for a few minutes after you made a push, GitHub presents a big `Make Pull Request` button for your branch to make it easy for you. In any case, you can go to the branches list and find an option to create one for your branch.
-11. When creating a pull request, make sure to add atleast one reviewer (either your team leader or someone who maybe understand what you did better).
-12. If the reviewer leaves some comments, address those issues and make a commit for it and push it. However, make sure to pull in the main branch and rebase onto the main branch (Step 5) to get updates that other people added in the meantime whenever you want to make changes, make a push, or before you merge.
-13. If the reviewer approves the pull request, you can now merge it to the main branch. Github offers you the option to merge the pull request. If you choose the `Squash and Merge` option, it allows you to group together your multiple smaller commits into one commit message with the others listed as a description.
-14. Once you have merged a branch, make sure to rebase again to get updates from the main if you intend to keep working on it. Otherwise try to delete it as soon as you can. It is better and easier to recreate the branch again later if you need it.
+A2Sv has a famous telegram channel called A2SV celebrations where we celebrate community members on their special days and their great achievements. However, all that showering of blessings and best wishes plus those great achievements get buried in the background as new members join the community and legends become forgotten, teaching stories become shadowed.
 
-# If you have any other questions, feel free to look it up, ask your team leads or really anyone else. Thank You.
+In this project you'll be required to develop a blog application where people will be able to write their blog articles, comment on articles as well as clap and celebrate people's articles. People should register as well as complete an authentication process if they want to apply write related features in their system.
 
+## Features
 
-![eskalate](https://user-images.githubusercontent.com/36234545/91556848-14882e00-e93c-11ea-8ebb-a490362c924d.png)
+- People should be allowed to register and sign in to their respective accounts
+- People can write/update/delete articles of their own as well as see what other people have written
+- People can write/update/delete comments of their own as well as see what other people have written on a particular article
+- People can clap/UnClap for articles
+- People should only be allowed to update articles/comments when it's their own
 
-Made with ❤ since 2019 in Ethiopia, Turkey and USA by the Eskalate team. Eskalate LLC is a American company. <br>
-**Copyright © 2020 Eskalate. All rights reserved.**
+## Workflow
 
+### Before you begin, read the following rules
+
+- **Unit Testing is mandatory at every feature you add or modify**
+- **Documentation is mandatory at every phase**
+- **Set a PR and assign a reviewer always for the changes you want to push to master**
+
+### Phase-1 - Basic CRUD Stage
+
+- No Authorization implementation
+- No Authentication implementation
+- No interlinking between models. Set their values statically for now
+
+1. Implement CRUD for Users
+2. Implement CRUD for Articles
+3. Implement CRUD for Comments
+4. Implement CRUD for Claps
+
+### Phase-2 - Interlink between models
+
+1. Interlink Articles with Users
+2. Interlink Comments with Articles
+3. Interlink Claps with Articles and Comments
+
+### Phase-3 - Add Authorization and Authentication
+
+1. Add security measures for Users
+2. Add security measures for Articles
+3. Add security measures for Comments
+4. Add security measures for Claps
+
+### Phase-4 - Add File Management
+
+1. Allow users to upload their profile pictures (Use Cloudinary service)
+2. Allow users to upload a photo for their Articles (Use Cloudinary service)
+
+## Architecture
+
+We will use MVC Architecture. i.e we will have models, routes and controllers.
+
+- server.ts file is used to create our express app and create mongodb connection through mongoose package.
+- under the routes file we will set up our express routers for each model
+- under controllers we will use models and do CRUD operations and this operations are going to be called by routes
+- routes are called by app.ts based on paths
+- look at the scripts under package.json file on how to run the project(you just need to use 'npm run dev')
+
+## Sample Task Divisions
+
+### User
+
+POST → Signin User
+
+POST -> signup User
+
+GET → Get user by Id
+
+GET → Get All user
+
+PATCH → Update user by Id
+
+DEL → Delete user by Id
+
+### Article
+
+POST → Add article
+
+GET → Get article by Id
+
+GET → Get All article
+
+PATCH → Update article by Id
+
+DEL → Delete article by Id
+
+### Comment
+
+POST → Add comment
+
+GET → Get comment by Id
+
+GET → Get All comments
+
+GET → Get specific comment
+
+PATCH → Update comment by Id
+
+DEL → Delete comment by Id
+
+### Future Works
+
+- Add xss protection for all routes
+- Add newsletter options
+- Cron Scheduled emails going out to all users on saturday with contest link
+- Push notification for update, offers and news
+- Add a search feature for articles for any user and search users for admins
+- Emailing service for sending emails to users
+- Add sentry for error logging and performance metrics
+- Use a message broker and queue (rabbit-mq) for sending emails to users for decoupling
+- Automated birthday reminders and other holidays, celebration notifications
