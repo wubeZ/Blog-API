@@ -1,4 +1,4 @@
-# Starter Project - Backend - G33 - A2SV Blog and Shout Outs
+# A2SV Blog and Shout Outs
 
 - Overview and description of what the project is going to be
 - Workflow as a backend team member and
