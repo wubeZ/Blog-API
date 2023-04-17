@@ -1,6 +1,6 @@
 # A2SV Blog and Shout Outs
 
-- Overview and description of what the project is going to be
+- Overview and description of what the project
 - Workflow as a backend team member and
 - Source of any additional information you might need
 
@@ -117,4 +117,4 @@ DEL → Delete comment by Id
 - Emailing service for sending emails to users
 - Add sentry for error logging and performance metrics
 - Use a message broker and queue (rabbit-mq) for sending emails to users for decoupling
-- Automated birthday reminders and other holidays, celebration notifications
+- Automated birthday reminders and other holidays, celebration notifications 
